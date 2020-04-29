@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as bs
 from requests import get
 import telebot
+from datetime import datetime
 import config
 
 #token = "625744069:AAGTXbrysLdWXsapmqhI9SPYpgledYJWPa4"
@@ -46,23 +47,26 @@ def locaweb_status (message):
     st9 = listasts[8].strip()
     st10 = listasts[9].strip()
 
+    data_hj = datetime.now()
+    data_atual = data_hj.strftime('%d/%m/%Y %H:%M')
 
     msg = f"""
-    Status Produtos Locaweb:
+    *Status Produtos Locaweb:*
 
-    Produto:                               Status:\n
-    {s1}              {st1}\n 
-    {s2}               {st2}\n 
-    {s3}                  {st3}\n 
-    {s4}                                    {st4}\n 
-    {s5}                 {st5}\n 
-    {s6}                      {st6}\n 
-    {s7}                              {st7}\n 
-    {s8}                       {st8}\n 
-    {s9}                              {st9}\n 
-    {s10}      {st10}\n
+    *Produto:*                               *Status:*\n
+    *{s1}*              _{st1}_\n 
+    *{s2}*               _{st2}_\n 
+    *{s3}*                  _{st3}_\n 
+    *{s4}*                                    _{st4}_\n 
+    *{s5}*                 _{st5}_\n 
+    *{s6}*                      _{st6}_\n 
+    *{s7}*                              _{st7}_\n 
+    *{s8}*                       _{st8}_\n 
+    *{s9}*                              _{st9}_\n 
+    *{s10}*      _{st10}_\n
+    Data da Consulta:  *{data_atual}*\n
     """
     #print(msg)
-    bot.reply_to(message,msg)
+    bot.reply_to(message,msg,parse_mode="Markdown")
 
 bot.polling()
