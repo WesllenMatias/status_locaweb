@@ -4,7 +4,7 @@ import telebot
 from datetime import datetime
 import config
 
-#token = "625744069:AAGTXbrysLdWXsapmqhI9SPYpgledYJWPa4"
+
 token = config.token
 url_base = 'https://statusblog.locaweb.com.br/'
 locaweb = get(url_base).content
